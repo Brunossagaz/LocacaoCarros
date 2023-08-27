@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using LocacaoCarros.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using LocacaoCarros.Models;
 
 namespace LocacaoCarros.Controllers
 {
@@ -21,9 +16,9 @@ namespace LocacaoCarros.Controllers
         // GET: Carros
         public async Task<IActionResult> Index()
         {
-              return _context.Carros != null ? 
-                          View(await _context.Carros.ToListAsync()) :
-                          Problem("Entity set 'Context.Carros'  is null.");
+            return _context.Carros != null ?
+                        View(await _context.Carros.ToListAsync()) :
+                        Problem("Entity set 'Context.Carros'  is null.");
         }
 
         // GET: Carros/Details/5
@@ -149,14 +144,14 @@ namespace LocacaoCarros.Controllers
             {
                 _context.Carros.Remove(carros);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CarrosExists(int id)
         {
-          return (_context.Carros?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Carros?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

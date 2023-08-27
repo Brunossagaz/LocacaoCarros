@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 //Configurações para se conectar com o Banco
 builder.Services.AddEntityFrameworkNpgsql()
     .AddDbContext<Context>(options =>
-        options.UseNpgsql("Host=localhost;Port=5432;Pooling=true;Database=LocacaoCarros;User Id=postgres;Password=12345"));
+        options.UseNpgsql("Host=localhost;Port=5432;Pooling=true;Database=LocacaoCarros;User Id=postgres;Password=sagaz3108"));
 
 var app = builder.Build();
 
