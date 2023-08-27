@@ -1,7 +1,15 @@
+using LocacaoCarros.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Configurações para se conectar com o Banco
+builder.Services.AddEntityFrameworkNpgsql()
+    .AddDbContext<Context>(options =>
+        options.UseNpgsql("Host=localhost;Port=5432;Pooling=true;Database=LocacaoCarros;User Id=postgres;Password=12345"));
 
 var app = builder.Build();
 
